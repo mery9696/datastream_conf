@@ -24,10 +24,7 @@ resource "google_datastream_private_connection" "vpc_micasino" {
 		subnet = google_compute_subnetwork.vpc_subnet.id
 	}
 }
-"""para pregunta: es necesario este paso si la VPC ya existe""" 
-resource "google_compute_network" "vpc_default" {
-	name = "google_compute_network.vpc.name"
-}
+
 
 resource "google_datastream_connection_profile" "bd_site" {
 	display_name          =   "${var.project_name}/${var.gcloud_region}/connection_profile/${var.profile_site}"
