@@ -20,8 +20,8 @@ resource "google_datastream_private_connection" "vpc_micasino" {
 	}
 
 	vpc_peering_config {
-		vpc = "google_compute_network.vpc.id"
-		subnet = "google_compute_subnetwork.vpc_subnet.id"
+		vpc = google_compute_network.vpc.id
+		subnet = google_compute_subnetwork.vpc_subnet.id
 	}
 }
 """para pregunta: es necesario este paso si la VPC ya existe""" 
@@ -74,7 +74,7 @@ resource "google_datastream_connection_profile" "bucket_micasinobi" {
 
     gcs_profile {
         bucket    = var.profile_bucketmicasino
-        root_path = "/path"
+        root_path = "/dms_micasino"
     }
 }
 
